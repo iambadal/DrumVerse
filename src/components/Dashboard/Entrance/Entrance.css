@@ -1,0 +1,485 @@
+.stage-entrance{
+    --entrance-duration:3.2s;
+
+    --entrance-delay:.15s;
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    animation: entranceComplete var(--entrance-duration) ease forwards;
+
+}
+
+/* ===================================
+   Darkness Layer
+=================================== */
+
+.entrance-darkness{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#000000;
+
+    animation: darknessReveal calc( var(--entrance-duration) - .6s) ease forwards;
+
+}
+
+/* ===================================
+   Vignette
+=================================== */
+.entrance-vignette{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            transparent 42%,
+
+            rgba(0,0,0,.55) 100%
+
+        );
+
+    animation:  vignetteFade calc( var(--entrance-duration) - .4s) ease forwards;
+
+}
+/* ===================================
+   Stage Reveal
+=================================== */
+
+.entrance-light-reveal{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+
+        translate(-50%,-50%)
+
+        scale(.65);
+
+    width:1400px;
+
+    height:1400px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,255,255,.05),
+
+            rgba(255,255,255,.015),
+
+            transparent 72%
+
+        );
+
+    filter:
+
+        blur(120px);
+
+    opacity:0;
+
+    animation: revealBloom calc( var(--entrance-duration) - .4s) ease forwards;
+
+}
+
+/* ===================================
+   Future Performance States
+=================================== */
+
+.stage-entrance.performance{
+
+    --entrance-duration:2.2s;
+
+}
+
+.stage-entrance.instant{
+
+    --entrance-duration:.4s;
+
+}
+
+/* ===================================
+   Film Grain
+=================================== */
+.entrance-noise{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.03;
+
+    background-image:
+
+        radial-gradient(
+
+            rgba(255,255,255,.9) .6px,
+
+            transparent .7px
+
+        );
+
+    background-size:
+
+        7px 7px;
+
+    mix-blend-mode:soft-light;
+
+    animation:
+
+        grainFade 2.6s ease forwards;
+
+}
+
+/* ===================================
+   Performance
+=================================== */
+
+.stage-entrance,
+
+.entrance-darkness,
+
+.entrance-vignette,
+
+.entrance-light-reveal,
+
+.entrance-noise{
+
+    will-change:
+
+        opacity,
+
+        transform;
+
+    backface-visibility:hidden;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media(max-width:992px){
+
+    .entrance-light-reveal{
+
+        width:1100px;
+
+        height:1100px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .entrance-light-reveal{
+
+        width:850px;
+
+        height:850px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .entrance-light-reveal{
+
+        width:650px;
+
+        height:650px;
+
+    }
+
+}
+
+/* ===================================
+   Overlay Completion
+=================================== */
+
+@keyframes entranceComplete{
+
+    0%{
+
+        opacity:1;
+
+        visibility:visible;
+
+    }
+
+    90%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        visibility:hidden;
+
+    }
+
+}
+
+/* ===================================
+   Darkness
+=================================== */
+
+@keyframes darknessReveal{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+    35%{
+
+        opacity:.92;
+
+    }
+
+    70%{
+
+        opacity:.35;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===================================
+   Vignette
+=================================== */
+
+@keyframes vignetteFade{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.25;
+
+    }
+
+}
+
+/* ===================================
+   Stage Bloom
+=================================== */
+
+@keyframes revealBloom{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(.6);
+
+    }
+
+    40%{
+
+        opacity:.45;
+
+    }
+
+    70%{
+
+        opacity:.85;
+
+    }
+
+    100%{
+
+        opacity:.85;
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(1);
+
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .stage-entrance,
+
+    .entrance-darkness,
+
+    .entrance-vignette,
+
+    .entrance-light-reveal,
+
+    .entrance-noise{
+
+        animation:none;
+
+    }
+
+    .stage-entrance{
+
+        display:none;
+
+    }
+
+}
+
+.stage-entrance{
+
+    contain:strict;
+
+}
+
+.entrance-darkness,
+
+.entrance-vignette,
+
+.entrance-light-reveal,
+
+.entrance-noise{
+
+    contain:paint;
+
+}
+
+/* ===================================
+   Film Grain
+=================================== */
+
+@keyframes grainFade{
+
+    0%{
+
+        opacity:.05;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+.entrance-darkness,
+
+.entrance-vignette,
+
+.entrance-light-reveal,
+
+.entrance-noise{
+
+    contain:layout paint;
+
+}
+
+@media(max-width:768px){
+
+    .stage-entrance{
+
+        animation-duration:2.6s;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .stage-entrance{
+
+        animation-duration:2.2s;
+
+    }
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media(max-width:768px){
+
+    .entrance-light-reveal{
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(.8);
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .entrance-light-reveal{
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(.65);
+
+    }
+
+}
+
+/* ===================================
+   Touch Devices
+=================================== */
+
+@media(pointer:coarse){
+
+    .stage-entrance{
+
+        --entrance-duration:2.6s;
+
+    }
+
+}

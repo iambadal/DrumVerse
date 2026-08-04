@@ -1,0 +1,365 @@
+/* ==========================================================
+   Cursor Glow
+========================================================== */
+
+.cursor-glow{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:9998;
+
+    transform:
+        translate(-50%,-50%);
+
+    transition:
+
+        width .35s ease,
+
+        height .35s ease,
+
+        opacity .35s ease,
+
+        filter .35s ease;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(124,58,237,.22) 0%,
+
+            rgba(0,245,255,.16) 35%,
+
+            rgba(255,45,149,.08) 65%,
+
+            transparent 100%
+
+        );
+
+    filter:
+
+        blur(35px);
+
+    opacity:.75;
+
+    mix-blend-mode:screen;
+
+    will-change:
+
+        transform;
+
+}
+
+/* ==========================================================
+   Cursor Dot
+========================================================== */
+
+.cursor-dot{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    transform:
+
+        translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    box-shadow:
+
+        0 0 8px #fff,
+
+        0 0 18px #00F5FF,
+
+        0 0 28px #7C3AED;
+
+}
+
+/* ==========================================================
+   Hover State
+========================================================== */
+
+.cursor-active{
+
+    width:420px;
+
+    height:420px;
+
+    opacity:1;
+
+    filter:
+
+        blur(45px);
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(124,58,237,.35) 0%,
+
+            rgba(0,245,255,.22) 30%,
+
+            rgba(255,45,149,.15) 60%,
+
+            transparent 100%
+
+        );
+
+}
+
+/* ==========================================================
+   Idle Animation
+========================================================== */
+
+.cursor-glow{
+
+    animation:
+        cursorBreath 5s ease-in-out infinite;
+
+}
+
+@keyframes cursorBreath{
+
+    0%{
+
+        opacity:.65;
+
+        filter:blur(35px);
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+    50%{
+
+        opacity:.9;
+
+        filter:blur(45px);
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+
+    }
+
+    100%{
+
+        opacity:.65;
+
+        filter:blur(35px);
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+}
+
+/* ==========================================================
+   Cursor Dot Animation
+========================================================== */
+
+.cursor-dot{
+
+    animation:
+        dotPulse 2s ease infinite;
+
+}
+
+@keyframes dotPulse{
+
+    0%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+    50%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.35);
+
+    }
+
+    100%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+}
+
+/* ==========================================================
+   Smooth Transition
+========================================================== */
+
+.cursor-glow,
+.cursor-dot{
+
+    transition:
+
+        opacity .25s ease,
+
+        transform .08s linear,
+
+        background .35s ease,
+
+        filter .35s ease,
+
+        width .35s ease,
+
+        height .35s ease;
+
+}
+
+/* ==========================================================
+   Hover Lighting
+========================================================== */
+
+.cursor-active{
+
+    box-shadow:
+
+        0 0 80px rgba(124,58,237,.4),
+
+        0 0 140px rgba(0,245,255,.25),
+
+        0 0 200px rgba(255,45,149,.15);
+
+}
+
+/* ==========================================================
+   Drum Pad Hover Enhancement
+========================================================== */
+
+.drum-pad:hover{
+
+    z-index:20;
+
+}
+
+/* ==========================================================
+   Performance
+========================================================== */
+
+.cursor-glow,
+.cursor-dot{
+
+    backface-visibility:hidden;
+
+    contain:layout style paint;
+
+    will-change:
+
+        transform,
+
+        opacity;
+
+}
+
+/* ==========================================================
+   Disable on Touch Devices
+========================================================== */
+
+@media (hover:none),
+(pointer:coarse){
+
+    .cursor-glow,
+    .cursor-dot{
+
+        display:none;
+
+    }
+
+}
+
+/* ==========================================================
+   Tablet
+========================================================== */
+
+@media(max-width:992px){
+
+    .cursor-glow{
+
+        width:240px;
+
+        height:240px;
+
+    }
+
+    .cursor-active{
+
+        width:300px;
+
+        height:300px;
+
+    }
+
+}
+
+/* ==========================================================
+   Small Mobile
+========================================================== */
+
+@media(max-width:576px){
+
+    .cursor-glow{
+
+        width:180px;
+
+        height:180px;
+
+        opacity:.45;
+
+    }
+
+}
+
+/* ==========================================================
+   Accessibility
+========================================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+    .cursor-glow,
+    .cursor-dot{
+
+        animation:none;
+
+        transition:none;
+
+    }
+
+}

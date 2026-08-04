@@ -1,0 +1,647 @@
+.mid-tom{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:30;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+/* ===================================
+   Shadow
+=================================== */
+
+.mid-tom-shadow{
+
+    position:absolute;
+
+    bottom:-18px;
+
+    width:155px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(0,0,0,.35),
+
+            transparent 72%
+
+        );
+
+    filter:blur(12px);
+
+}
+
+/* ===================================
+   Shell
+=================================== */
+
+.mid-tom-shell{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            #0b0b0b,
+
+            #252525,
+
+            #050505
+
+        );
+
+    box-shadow:
+
+        inset 0 2px 6px rgba(255,255,255,.08),
+
+        0 16px 28px rgba(0,0,0,.35);
+
+}
+
+/* ===================================
+   Chrome Hoops
+=================================== */
+
+.mid-tom-rim{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:5px solid #d6d6d6;
+
+    box-shadow:
+
+        inset 0 1px 3px rgba(255,255,255,.35),
+
+        0 3px 8px rgba(0,0,0,.25);
+
+}
+
+.outer-rim{
+
+    inset:0;
+
+}
+
+.inner-rim{
+
+    inset:12px;
+
+    border-width:4px;
+
+}
+
+/* ===================================
+   Drum Head
+=================================== */
+
+.mid-tom-head{
+
+    position:absolute;
+
+    inset:20px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #f8f8f8,
+
+            #ececec,
+
+            #dadada
+
+        );
+
+    box-shadow:
+
+        inset 0 2px 8px rgba(255,255,255,.55),
+
+        inset 0 -5px 12px rgba(0,0,0,.08);
+
+}
+
+/* ===================================
+   Reflection
+=================================== */
+
+.mid-tom-shell::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:22px;
+
+    top:18px;
+
+    width:48px;
+
+    height:16px;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(255,255,255,.45),
+
+            transparent
+
+        );
+
+    filter:blur(4px);
+
+}
+
+/* ===================================
+   Hover
+=================================== */
+
+.mid-tom{
+
+    transition:
+
+        transform .22s ease;
+
+}
+
+.mid-tom:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* ===================================
+   Performance
+=================================== */
+
+.mid-tom,
+
+.mid-tom-shell,
+
+.mid-tom-head{
+
+    will-change:
+
+        transform,
+
+        filter;
+
+    backface-visibility:hidden;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media(max-width:992px){
+
+    .mid-tom{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.9);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .mid-tom{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.78);
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .mid-tom{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.64);
+
+    }
+
+}
+
+/* ===================================
+   Chrome Lugs
+=================================== */
+
+.mid-lug{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:10px;
+
+    height:24px;
+
+    margin-left:-5px;
+
+    margin-top:-68px;
+
+    border-radius:8px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #f8f8f8,
+
+            #8c8c8c,
+
+            #ececec
+
+        );
+
+    transform-origin:
+
+        center
+
+        68px;
+
+    box-shadow:
+
+        inset 0 1px 2px rgba(255,255,255,.4),
+
+        0 2px 5px rgba(0,0,0,.3);
+
+}
+
+.lug-1{transform:rotate(0deg);}
+.lug-2{transform:rotate(45deg);}
+.lug-3{transform:rotate(90deg);}
+.lug-4{transform:rotate(135deg);}
+.lug-5{transform:rotate(180deg);}
+.lug-6{transform:rotate(225deg);}
+.lug-7{transform:rotate(270deg);}
+.lug-8{transform:rotate(315deg);}
+/* ===================================
+   Rack Connector
+=================================== */
+
+.rack-connector{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-74px;
+
+    transform:translateX(-50%);
+
+    width:8px;
+
+    height:52px;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #efefef,
+
+            #6e6e6e,
+
+            #d9d9d9
+
+        );
+
+    box-shadow:
+
+        inset 0 1px 2px rgba(255,255,255,.35),
+
+        0 2px 6px rgba(0,0,0,.3);
+
+}
+
+/* ===================================
+   Hardware Polish
+=================================== */
+
+.mid-lug,
+.mount-clamp,
+.mount-arm,
+.mount-joint,
+.rack-connector{
+
+    transition:
+
+        filter .15s ease;
+
+}
+
+.mid-tom:hover .mid-lug,
+.mid-tom:hover .mount-clamp,
+.mid-tom:hover .mount-arm,
+.mid-tom:hover .mount-joint,
+.mid-tom:hover .rack-connector{
+
+    filter:brightness(1.12);
+
+}
+
+/* ===================================
+   Performance
+=================================== */
+
+.mid-lug,
+.rack-connector{
+
+    will-change:
+
+        transform,
+
+        filter;
+
+    backface-visibility:hidden;
+
+}
+
+/* ===================================
+   Drum Compression
+=================================== */
+
+.mid-tom{
+
+    transition:
+
+        transform .14s cubic-bezier(.22,.82,.2,1);
+
+}
+
+.mid-tom.active{
+
+    transform:
+
+        translateY(2px)
+
+        scale(.975);
+
+}
+
+/* ===================================
+   Drum Head
+=================================== */
+
+.mid-tom-head{
+
+    transition:
+
+        transform .12s ease,
+
+        filter .12s ease;
+
+}
+
+.mid-tom.active .mid-tom-head{
+
+    transform:
+
+        scale(.985);
+
+    filter:
+
+        brightness(1.12);
+
+}
+
+/* ===================================
+   Shell Motion
+=================================== */
+
+.mid-tom-shell{
+
+    transition:
+
+        transform .14s ease;
+
+}
+
+.mid-tom.active .mid-tom-shell{
+
+    transform:
+
+        translateY(3px);
+
+}
+
+/* ===================================
+   Rack Mount
+=================================== */
+.rack-connector{
+
+    transition:
+
+        transform .14s ease;
+
+}
+
+.mid-tom.active{
+
+    transform:translateY(3px);
+}
+
+.mid-tom.active .rack-connector{
+
+    transform:scaleY(.96);
+
+}
+
+/* ===================================
+   Shadow
+=================================== */
+
+.mid-tom-shadow{
+
+    transition:
+
+        transform .14s ease,
+
+        opacity .14s ease;
+
+}
+
+.mid-tom.active .mid-tom-shadow{
+
+    transform:
+
+        scale(.9);
+
+    opacity:.72;
+
+}
+
+/* ===================================
+   Chrome Reflection
+=================================== */
+
+.mid-tom-rim,
+
+.mid-lug,
+
+.mount-clamp,
+
+.mount-arm,
+
+.mount-joint,
+
+.rack-connector{
+
+    transition:
+
+        filter .14s ease;
+
+}
+
+.mid-tom.active .mid-tom-rim,
+
+.mid-tom.active .mid-lug,
+
+.mid-tom.active .mount-clamp,
+
+.mid-tom.active .mount-arm,
+
+.mid-tom.active .mount-joint,
+
+.mid-tom.active .rack-connector{
+
+    filter:
+
+        brightness(1.18);
+
+}
+
+/* ===================================
+   Rack Rebound
+=================================== */
+
+.mid-tom.active .mount-arm{
+
+    transform:rotate(2deg);
+
+}
+
+.mid-tom.active .mount-joint{
+
+    transform:scale(.94);
+
+}
+
+.mid-tom:focus-visible{
+
+    outline:2px solid rgba(255,255,255,.75);
+
+    outline-offset:10px;
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .mid-tom,
+
+    .mid-tom-shell,
+
+    .mid-tom-head,
+
+    .mid-tom-shadow,
+
+    .tom-mount,
+
+    .rack-connector,
+
+    .mid-tom-rim,
+
+    .mid-lug,
+
+    .mount-clamp,
+
+    .mount-arm,
+
+    .mount-joint{
+
+        transition:none;
+
+    }
+
+}
+
+.mid-tom-shell,
+
+.mid-tom-head,
+
+.tom-mount,
+
+.rack-connector{
+
+    will-change:
+
+        transform,
+
+        filter;
+
+    backface-visibility:hidden;
+
+}
+

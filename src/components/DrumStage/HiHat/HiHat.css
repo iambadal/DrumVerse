@@ -1,0 +1,886 @@
+.hihat{
+
+    position:relative;
+
+    width:220px;
+
+    height:340px;
+    overflow:visible;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    isolation:isolate;
+
+}
+
+/* =======================================
+   Shadow
+======================================= */
+
+.hihat-shadow{
+
+    position:absolute;
+
+    bottom:8px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:150px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(0,0,0,.35),
+
+            transparent 75%
+
+        );
+
+    filter:blur(12px);
+
+}
+
+/* =======================================
+   Bronze Cymbal
+======================================= */
+
+.top-cymbal,
+.bottom-cymbal{
+
+    position:absolute;
+
+    width:150px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #f9dc7b,
+
+            #d7a63a,
+
+            #8e5f12
+
+        );
+
+    box-shadow:
+
+        inset 0 2px 3px rgba(255,255,255,.35),
+
+        inset 0 -4px 6px rgba(0,0,0,.25),
+
+        0 5px 14px rgba(0,0,0,.3);
+
+}
+
+.top-cymbal{
+
+    top:80px;
+
+    z-index:5;
+
+}
+
+.bottom-cymbal{
+
+    top:100px;
+
+    z-index:2;
+
+}
+
+/* =======================================
+   Grooves
+======================================= */
+
+.cymbal-grooves{
+
+    position:absolute;
+
+    inset:3px;
+
+    border-radius:50%;
+
+    background:
+
+        repeating-radial-gradient(
+
+            circle,
+
+            transparent 0px,
+
+            transparent 4px,
+
+            rgba(255,255,255,.08) 5px,
+
+            transparent 6px
+
+        );
+
+}
+
+/* =======================================
+   Bell
+======================================= */
+
+.cymbal-bell{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #ffe7a5,
+
+            #c68c24,
+
+            #7d520d
+
+        );
+
+}
+
+/* =======================================
+   Center Rod
+======================================= */
+
+.center-rod{
+
+    position:absolute;
+
+    left:50%;
+
+    top:38px;
+
+    transform:translateX(-50%);
+
+    width:5px;
+
+    height:95px;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #fafafa,
+
+            #888,
+
+            #ececec
+
+        );
+
+}
+
+/* =======================================
+   Felt Washers
+======================================= */
+
+.top-felt,
+.bottom-felt{
+
+    position:absolute;
+
+    left:50%;
+
+    width:18px;
+
+    height:6px;
+
+    transform:translateX(-50%);
+
+    border-radius:999px;
+
+    background:#343434;
+
+}
+
+.top-felt{
+
+    top:-6px;
+
+}
+
+.bottom-felt{
+
+    top:-3px;
+
+}
+
+/* =======================================
+   Wing Nut
+======================================= */
+
+.wing-nut{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-18px;
+
+    transform:translateX(-50%);
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #fafafa,
+
+            #8d8d8d,
+
+            #666
+
+        );
+
+    box-shadow:
+
+        inset 0 1px 2px rgba(255,255,255,.35);
+
+}
+
+.wing-nut::before,
+.wing-nut::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    width:12px;
+
+    height:4px;
+
+    margin-top:-2px;
+
+    border-radius:999px;
+
+    background:#cfcfcf;
+
+}
+
+.wing-nut::before{
+
+    left:-8px;
+
+}
+
+.wing-nut::after{
+
+    right:-8px;
+
+}
+
+/* =======================================
+   Hover
+======================================= */
+
+.hihat{
+
+    transition:
+
+        transform .2s ease;
+
+}
+
+.hihat:hover{
+
+    transform:scale(1.03);
+
+}
+
+.hihat:hover .top-cymbal,
+.hihat:hover .bottom-cymbal{
+
+    filter:brightness(1.08);
+
+}
+
+/* =======================================
+   Performance
+======================================= */
+
+.top-cymbal,
+.bottom-cymbal,
+.center-rod{
+
+    will-change:
+
+        transform,
+
+        filter;
+
+    backface-visibility:hidden;
+
+}
+
+/* ==========================================
+   Stand Tube
+========================================== */
+
+.stand-tube{
+
+    position:absolute;
+
+    left:50%;
+
+    top:108px;
+
+    transform:translateX(-50%);
+
+    width:8px;
+
+    height:135px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4f4f4,
+            #8c8c8c,
+            #e7e7e7
+        );
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.35),
+        0 2px 6px rgba(0,0,0,.25);
+
+}
+
+/* ==========================================
+   Spring Housing
+========================================== */
+
+.spring-housing{
+
+    position:absolute;
+
+    left:50%;
+
+    top:92px;
+
+    transform:translateX(-50%);
+
+    width:18px;
+
+    height:28px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ededed,
+            #6e6e6e,
+            #dcdcdc
+        );
+
+}
+
+/* ==========================================
+   Tripod
+========================================== */
+
+.tripod{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:8px;
+
+    transform:translateX(-50%);
+
+    width:170px;
+
+    height:90px;
+
+}
+
+.tripod-leg{
+
+    position:absolute;
+
+    width:6px;
+
+    height:82px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #efefef,
+            #707070,
+            #e6e6e6
+        );
+
+}
+
+.left-leg{
+
+    left:38px;
+
+    transform:rotate(28deg);
+
+}
+
+.center-leg{
+
+    left:82px;
+
+}
+
+.right-leg{
+
+    right:38px;
+
+    transform:rotate(-28deg);
+
+}
+
+.rubber-foot{
+
+    position:absolute;
+
+    bottom:-6px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:16px;
+
+    height:10px;
+
+    border-radius:999px;
+
+    background:#4b4b4b;
+
+}
+
+/* ==========================================
+   Pedal
+========================================== */
+
+.pedal-system{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:90px;
+
+    height:58px;
+
+}
+
+.pedal-base{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:8px;
+
+    border-radius:999px;
+
+    background:#777;
+
+}
+
+.footboard{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:6px;
+
+    transform:translateX(-50%);
+
+    width:24px;
+
+    height:46px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #efefef,
+            #7b7b7b,
+            #d8d8d8
+        );
+
+}
+
+.chain-link{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:44px;
+
+    transform:translateX(-50%);
+
+    width:4px;
+
+    height:30px;
+
+    background:#bdbdbd;
+
+}
+
+/* ==========================================
+   Hardware Hover
+========================================== */
+
+.stand-tube,
+.tripod-leg,
+.footboard,
+.spring-housing{
+
+    transition:
+        filter .15s ease;
+
+}
+
+.hihat:hover .stand-tube,
+.hihat:hover .tripod-leg,
+.hihat:hover .footboard,
+.hihat:hover .spring-housing{
+
+    filter:brightness(1.12);
+
+}
+
+/* ==========================================
+   Top Cymbal Motion
+========================================== */
+
+.top-cymbal{
+
+    transition:
+
+        transform .12s ease,
+
+        filter .12s ease;
+
+}
+
+.hihat.active .top-cymbal{
+
+    transform:
+
+        translateY(8px)
+
+        rotate(.8deg);
+
+}
+
+/* ==========================================
+   Pull Rod
+========================================== */
+
+.center-rod{
+    top:38px;
+
+    transition:
+
+        transform .12s ease;
+
+}
+
+.hihat.active .center-rod{
+
+    transform:
+
+        translateX(-50%)
+
+        translateY(8px);
+
+}
+
+/* ==========================================
+   Foot Pedal
+========================================== */
+
+.footboard{
+
+    transition:
+
+        transform .12s ease;
+
+}
+
+.hihat.active .footboard{
+
+    transform:
+
+        translateX(-50%)
+
+        rotateX(18deg)
+
+        translateY(5px);
+
+}
+
+/* ==========================================
+   Chain
+========================================== */
+
+.chain-link{
+
+    transition:
+
+        transform .12s ease,
+
+        height .12s ease;
+
+}
+
+.hihat.active .chain-link{
+
+    height:24px;
+
+    transform:
+
+        translateX(-50%)
+
+        translateY(6px);
+
+}
+
+/* ==========================================
+   Stand Flex
+========================================== */
+
+.stand-tube{
+
+    transition:
+
+        transform .12s ease;
+
+}
+
+.hihat.active .stand-tube{
+
+    transform:
+
+        translateX(-50%)
+
+        scaleY(.985);
+
+}
+
+/* ==========================================
+   Cymbal Wobble
+========================================== */
+
+.bottom-cymbal{
+
+    transition:
+
+        transform .12s ease;
+
+}
+
+.hihat.active .bottom-cymbal{
+
+    transform:
+
+        rotate(-.6deg);
+
+}
+
+/* ==========================================
+   Shadow
+========================================== */
+
+.hihat-shadow{
+
+    transition:
+
+        transform .12s ease,
+
+        opacity .12s ease;
+
+}
+
+.hihat.active .hihat-shadow{
+
+    transform:
+
+        translateX(-50%)
+
+        scale(.9);
+
+    opacity:.7;
+
+}
+
+/* ==========================================
+   Bronze Flash
+========================================== */
+
+.top-cymbal,
+.bottom-cymbal{
+
+    transition:
+
+        filter .12s ease,
+
+        transform .12s ease;
+
+}
+
+.hihat.active .top-cymbal,
+
+.hihat.active .bottom-cymbal{
+
+    filter:
+
+        brightness(1.15)
+
+        saturate(1.08);
+
+}
+
+/* ==========================================
+   Chrome Hardware
+========================================== */
+
+.center-rod,
+.stand-tube,
+.tripod-leg,
+.spring-housing,
+.footboard{
+
+    transition:
+
+        filter .12s ease;
+
+}
+
+.hihat.active .center-rod,
+.hihat.active .stand-tube,
+.hihat.active .tripod-leg,
+.hihat.active .spring-housing,
+.hihat.active .footboard{
+
+    filter:
+
+        brightness(1.15);
+
+}
+
+.hihat:focus-visible{
+
+    outline:2px solid rgba(255,255,255,.8);
+
+    outline-offset:8px;
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .hihat *{
+
+        transition:none !important;
+
+    }
+
+}
+
+.top-cymbal,
+.bottom-cymbal,
+.center-rod,
+.stand-tube,
+.tripod-leg,
+.footboard{
+
+    will-change:
+
+        transform,
+
+        filter;
+
+    backface-visibility:hidden;
+
+}
+
+.top-cymbal,
+.bottom-cymbal,
+.center-rod,
+.stand-tube,
+.tripod-leg,
+.footboard{
+
+    will-change:
+
+        transform,
+
+        filter;
+
+    backface-visibility:hidden;
+
+}

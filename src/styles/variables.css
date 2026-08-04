@@ -1,0 +1,219 @@
+:root{
+
+    /* ===================================
+       Colors
+    =================================== */
+
+    --background:#050505;
+
+    --background-secondary:#0A0A0A;
+
+    --surface:#111111;
+
+    --surface-light:#1A1A1A;
+
+    --primary:#7C3AED;
+
+    --secondary:#00F5FF;
+
+    --accent:#FF2D95;
+
+    --success:#2ECC71;
+
+    --white:#FFFFFF;
+
+    --text:#FFFFFF;
+
+    --text-secondary:#B8B8B8;
+
+    --text-muted:#7D7D7D;
+
+    --border:rgba(255,255,255,.08);
+
+    /* ===================================
+       Radius
+    =================================== */
+
+    --radius-sm:8px;
+
+    --radius-md:14px;
+
+    --radius-lg:22px;
+
+    --radius-xl:40px;
+
+    --radius-full:999px;
+
+    /* ===================================
+       Transition
+    =================================== */
+
+    --transition-fast:.2s ease;
+
+    --transition:.35s ease;
+
+    --transition-slow:.6s ease;
+
+    /* ===================================
+       Shadows
+    =================================== */
+
+    --shadow-primary:
+
+        0 20px 60px rgba(124,58,237,.25);
+
+    --shadow-secondary:
+
+        0 10px 40px rgba(0,245,255,.15);
+
+}
+
+/* ===================================
+   Layout
+=================================== */
+
+:root{
+
+    --container-width:1440px;
+
+    --section-padding:80px;
+
+    --content-width:1200px;
+
+    --navbar-height:88px;
+
+    --stage-width:min(92vw, 1800px);
+
+}
+
+/* ===================================
+   Ultra Wide
+=================================== */
+
+@media(min-width:1800px){
+
+    :root{
+
+        --container-width:1680px;
+
+        --content-width:1450px;
+
+        --section-padding:110px;
+
+    }
+
+}
+
+/* ===================================
+   Desktop
+=================================== */
+
+@media(max-width:1440px){
+
+    :root{
+
+        --container-width:1320px;
+
+        --content-width:1160px;
+
+    }
+
+}
+
+/* ===================================
+   Laptop
+=================================== */
+
+@media(max-width:1200px){
+
+    :root{
+
+        --container-width:1120px;
+
+        --content-width:980px;
+
+        --section-padding:72px;
+
+    }
+
+}
+
+/* ===================================
+   Tablet
+=================================== */
+
+@media(max-width:992px){
+
+    :root{
+
+        --section-padding:64px;
+
+        --navbar-height:78px;
+
+    }
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media(max-width:768px){
+
+    :root{
+
+        --section-padding:52px;
+
+        --navbar-height:72px;
+
+    }
+
+}
+
+/* ===================================
+   Small Mobile
+=================================== */
+
+@media(max-width:480px){
+
+    :root{
+
+        --section-padding:40px;
+
+        --navbar-height:64px;
+
+    }
+
+}
+
+/* ===================================
+   Motion
+=================================== */
+
+:root{
+
+    --motion-fast:.2s;
+
+    --motion-normal:.35s;
+
+    --motion-slow:.6s;
+
+}
+
+/* ===================================
+   Reduced Motion
+=================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    :root{
+
+        --motion-fast:0s;
+
+        --motion-normal:0s;
+
+        --motion-slow:0s;
+
+    }
+
+}

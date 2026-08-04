@@ -1,0 +1,19 @@
+.performance-zone{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    pointer-events:none;
+
+    z-index:20;
+
+    overflow:visible;
+
+}

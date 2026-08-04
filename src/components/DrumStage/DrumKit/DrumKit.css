@@ -1,0 +1,115 @@
+.drum-kit{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:30;
+
+    overflow:visible;
+
+}
+
+/* ==========================================
+   Drum Origin
+========================================== */
+
+.drum-origin{
+
+    position:absolute;
+
+    left:50%;
+
+    top:68%;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#00eaff;
+
+    transform:translate(-50%,-50%);
+
+    opacity:.25;
+
+}
+
+/* ==========================================
+   Kick
+========================================== */
+
+.kick-slot{
+
+    position:absolute;
+
+    left:50%;
+
+    top:66%;
+
+    width:340px;
+
+    height:340px;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    pointer-events:auto;
+
+    z-index:20;
+
+}
+
+/* ==========================================
+   Mid Tom
+========================================== */
+
+.midtom-slot{
+
+    position:absolute;
+
+    left:50%;
+
+    top:31%;
+
+    width:150px;
+
+    height:150px;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    pointer-events:auto;
+
+    z-index:30;
+
+}
+
+/* ==========================================
+   Mid Tom Anchor
+========================================== */
+
+.midtom-anchor{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-65%);
+
+}

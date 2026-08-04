@@ -1,0 +1,618 @@
+.stage-smoke{
+
+    --smoke-color:255,255,255;
+
+    --smoke-opacity:.05;
+
+    --smoke-density:1;
+
+    --smoke-speed:1;
+
+    --smoke-brightness:1;
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+/* ===================================
+   Shared Smoke Layer
+=================================== */
+
+.smoke-layer{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(calc(85px *var(--smoke-brightness)));
+
+    opacity:calc(var(--smoke-opacity)* var(--smoke-density));
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(var(--smoke-color),.16),
+
+            rgba(var(--smoke-color),.05),
+
+            transparent 72%
+
+        );
+
+    will-change:
+
+        transform,
+
+        opacity;
+
+}
+
+/* ===================================
+   Future Performance States
+=================================== */
+
+.stage-smoke.performance{
+
+    --smoke-density:1.35;
+
+    --smoke-opacity:.07;
+
+}
+
+.stage-smoke.beat-kick{
+
+    --smoke-color:124,58,237;
+
+}
+
+.stage-smoke.beat-snare{
+
+    --smoke-color:255,45,149;
+
+}
+
+.stage-smoke.beat-hihat{
+
+    --smoke-color:0,245,255;
+
+}
+
+.stage-smoke.beat-crash{
+
+    --smoke-color:255,255,255;
+
+}
+
+/* ===================================
+   Rear Atmospheric Haze
+=================================== */
+.smoke-back{
+
+    width:1100px;
+
+    height:500px;
+
+    left:50%;
+
+    top:8%;
+
+    transform:translateX(-50%);
+
+    animation:smokeBackMove calc( 52s * var(--smoke-speed) ) ease-in-out infinite;
+
+}
+
+/* ===================================
+   Upper Mist
+=================================== */
+.smoke-upper{
+
+    width:800px;
+
+    height:260px;
+
+    left:18%;
+
+    top:18%;
+
+    animation:smokeUpperMove calc( 38s * var(--smoke-speed)) ease-in-out infinite;
+
+}
+
+/* ===================================
+   Center Smoke
+=================================== */
+.smoke-center{
+
+    width:920px;
+
+    height:300px;
+
+    left:50%;
+
+    top:34%;
+
+    transform:translateX(-50%);
+
+    animation: smokeCenterMove calc( 46s * var(--smoke-speed)) ease-in-out infinite;
+
+}
+
+/* ===================================
+   Lower Stage Mist
+=================================== */
+
+.smoke-lower{
+
+    width:1200px;
+
+    height:260px;
+
+    left:50%;
+
+    bottom:70px;
+
+    transform:translateX(-50%);
+
+    animation: smokeLowerMove calc( 60s * var(--smoke-speed)) ease-in-out infinite;
+
+}
+
+/* ===================================
+   Ambient Haze
+=================================== */
+
+.smoke-haze{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            ellipse at center,
+
+            rgba(var(--smoke-color),.025),
+
+            transparent 70%
+
+        );
+
+    filter:blur(90px);
+
+    animation: hazeBreathing calc( 32s * var(--smoke-speed)) ease-in-out infinite;
+
+}
+
+.smoke-layer{
+
+    contain:layout paint;
+
+    transform-style:preserve-3d;
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .smoke-layer,
+
+    .smoke-haze{
+
+        animation:none;
+
+    }
+
+}
+
+.stage-smoke{
+
+    contain:layout paint;
+
+}
+
+.smoke-layer{
+
+    backface-visibility:hidden;
+
+}
+
+.smoke-haze{
+
+    will-change:
+
+        opacity,
+
+        transform;
+
+}
+/* ===================================
+   Performance
+=================================== */
+
+.stage-smoke,
+
+.smoke-layer,
+
+.smoke-haze{
+
+    backface-visibility:hidden;
+
+    transform-style:preserve-3d;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media(max-width:992px){
+
+    .smoke-back{
+
+        width:900px;
+
+    }
+
+    .smoke-center{
+
+        width:760px;
+
+    }
+
+    .smoke-lower{
+
+        width:900px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .smoke-upper{
+
+        width:520px;
+
+    }
+
+    .smoke-center{
+
+        width:560px;
+
+    }
+
+    .smoke-lower{
+
+        width:650px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .smoke-upper{
+
+        display:none;
+
+    }
+
+    .smoke-back{
+
+        width:500px;
+
+    }
+
+    .smoke-center{
+
+        width:380px;
+
+    }
+
+    .smoke-lower{
+
+        width:420px;
+
+    }
+
+}
+
+/* ===================================
+   Rear Atmospheric Drift
+=================================== */
+
+@keyframes smokeBackMove{
+
+    0%{
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+
+        opacity:.05;
+
+    }
+
+    50%{
+
+        transform:
+            translateX(-47%)
+            translateY(-24px)
+            scale(1.08);
+
+        opacity:.08;
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+
+        opacity:.05;
+
+    }
+
+}
+
+/* ===================================
+   Upper Mist
+=================================== */
+
+@keyframes smokeUpperMove{
+
+    0%{
+
+        transform:
+            translateX(0)
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateX(30px)
+            translateY(-18px)
+            scale(1.06);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(0)
+            translateY(0);
+
+    }
+
+}
+
+/* ===================================
+   Center Drift
+=================================== */
+
+@keyframes smokeCenterMove{
+
+    0%{
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+
+    }
+
+    50%{
+
+        transform:
+            translateX(-48%)
+            translateY(16px)
+            scale(1.05);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+/* ===================================
+   Lower Stage Mist
+=================================== */
+
+@keyframes smokeLowerMove{
+
+    0%{
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateX(-53%)
+            translateY(-14px)
+            scale(1.08);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+    }
+
+}
+
+/* ===================================
+   Ambient Haze
+=================================== */
+
+@keyframes hazeBreathing{
+
+    0%,
+    100%{
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        opacity:.9;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .smoke-back{
+
+        animation-duration:40s;
+
+    }
+
+    .smoke-center{
+
+        animation-duration:34s;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .smoke-lower{
+
+        opacity:.04;
+
+    }
+
+}
+
+/* ===================================
+   Desktop
+=================================== */
+
+@media(min-width:1800px){
+
+    .smoke-layer{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+/* ===================================
+   Tablet
+=================================== */
+
+@media(max-width:992px){
+
+    .smoke-layer{
+
+        opacity:.045;
+
+    }
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media(max-width:768px){
+
+    .smoke-upper{
+
+        display:none;
+
+    }
+
+    .smoke-center{
+
+        opacity:.035;
+
+    }
+
+}
+
+/* ===================================
+   Small Mobile
+=================================== */
+
+@media(max-width:480px){
+
+    .smoke-back{
+
+        opacity:.03;
+
+    }
+
+    .smoke-lower{
+
+        display:none;
+
+    }
+
+}
+
+/* ===================================
+   Touch Devices
+=================================== */
+
+@media(pointer:coarse){
+
+    .stage-smoke{
+
+        --smoke-density:.7;
+
+    }
+
+}
+
+/* ===================================
+   Low Motion
+=================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    .smoke-layer,
+
+    .smoke-haze{
+
+        animation:none;
+
+    }
+
+}

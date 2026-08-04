@@ -1,0 +1,57 @@
+.studio-layout{
+
+    position:absolute;
+
+    inset:0;
+
+    display:grid;
+
+    grid-template-columns:260px 1fr 260px;
+
+    grid-template-rows:1fr 130px;
+
+    grid-template-areas:
+
+        "left center right"
+
+        "bottom bottom bottom";
+
+    gap:20px;
+
+    padding:28px;
+
+    box-sizing:border-box;
+
+}
+
+.studio-left{
+
+    grid-area:left;
+
+}
+
+.studio-center{
+
+    grid-area:center;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.studio-right{
+
+    grid-area:right;
+
+}
+
+.studio-bottom{
+
+    grid-area:bottom;
+
+}

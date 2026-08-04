@@ -1,0 +1,141 @@
+.stage-frame{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:95vw;
+
+    max-width:1800px;
+
+    height:95vh;
+
+    max-height:1000px;
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    z-index:8;
+
+}
+
+/* =========================== */
+
+.frame-top{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:6px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(0,255,220,.55),
+
+            transparent
+
+        );
+
+}
+
+/* =========================== */
+
+.frame-bottom{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:6px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,0,180,.45),
+
+            transparent
+
+        );
+
+}
+
+/* =========================== */
+
+.frame-left{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(0,255,220,.45),
+
+            transparent
+
+        );
+
+}
+
+/* =========================== */
+
+.frame-right{
+
+    position:absolute;
+
+    right:0;
+
+    top:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,0,180,.45),
+
+            transparent
+
+        );
+
+}

@@ -1,0 +1,902 @@
+.spotlight{
+
+    --spotlight-color:255,255,255;
+
+    --spotlight-opacity:.45;
+
+    --spotlight-floor:.22;
+
+}
+
+.spotlight{
+
+    position:absolute;
+
+    top:92px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:700px;
+
+    height:760px;
+
+    pointer-events:none;
+
+    z-index:3;
+
+}
+
+/* ===================================
+   Spotlight Housing
+=================================== */
+
+.spotlight-head{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            #5A5A5A,
+
+            #1A1A1A
+
+        );
+
+    border:
+
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        inset 0 3px 8px rgba(var(--spotlight-color),.18),
+
+        0 10px 25px rgba(0,0,0,.55);
+
+}
+
+/* ===================================
+   Lens
+=================================== */
+
+.spotlight-lens{
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(var(--spotlight-color),.18),
+
+            rgba(var(--spotlight-color),.55),
+
+            rgba(var(--spotlight-color),.08)
+
+        );
+
+}
+
+/* ===================================
+   Support Arm
+=================================== */
+
+.spotlight-arm{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-22px;
+
+    transform:translateX(-50%);
+
+    width:6px;
+
+    height:28px;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #555,
+
+            #1A1A1A
+
+        );
+
+}
+
+/* ===================================
+   Ambient Glow
+=================================== */
+
+.spotlight-glow{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-12px;
+
+    transform:translateX(-50%);
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(var(--spotlight-color),.20),
+
+            rgba(var(--spotlight-color),.06),
+
+            transparent
+
+        );
+
+    filter:blur(45px);
+
+    animation:
+
+        glowBreathing 6s ease-in-out infinite;
+
+}
+
+/* ===================================
+   Beam Container
+=================================== */
+
+.spotlight-cone{
+
+    position:absolute;
+
+    left:50%;
+
+    top:44px;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    height:700px;
+
+    transform-origin:top center;
+
+    animation:
+
+        spotlightSweep 18s ease-in-out infinite;
+
+}
+/* ===================================
+   Beam Core
+=================================== */
+.spotlight-core{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:340px;
+
+    height:700px;
+
+    clip-path:polygon(
+
+        49.5% 0%,
+
+        50.5% 0%,
+
+        100% 100%,
+
+        0% 100%
+
+    );
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(var(--spotlight-color),.18) 0%,
+
+            rgba(var(--spotlight-color),.10) 18%,
+
+            rgba(var(--spotlight-color),.05) 55%,
+            transparent 100%
+
+        );
+
+    filter:
+
+        blur(12px);
+
+    opacity:var(--spotlight-opacity);
+
+    animation:
+
+        beamBreathing 7s ease-in-out infinite;
+
+}
+
+/* ===================================
+   Soft Beam
+=================================== */
+.spotlight-soft{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:520px;
+
+    height:700px;
+
+    clip-path:polygon(
+
+        49.5% 0%,
+
+        50.5% 0%,
+
+        100% 100%,
+
+        0% 100%
+
+    );
+
+    background:
+
+        radial-gradient(
+
+            ellipse at top,
+
+            rgba(var(--spotlight-color),.18),
+
+            rgba(var(--spotlight-color),.05),
+
+            transparent
+
+        );
+
+    filter:
+
+        blur(70px);
+
+    opacity:.45;
+
+    animation:
+
+        beamBreathing 8s ease-in-out infinite reverse;
+
+}
+
+/* ===================================
+   Focus Light
+=================================== */
+
+.spotlight-focus{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:34px;
+
+    transform:translateX(-50%);
+
+    width:440px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            ellipse,
+
+            rgba(var(--spotlight-color),.18),
+
+            rgba(var(--spotlight-color),.05),
+
+            transparent
+
+        );
+
+    filter:
+
+        blur(30px);
+
+    animation:
+
+        floorPulse 8s ease-in-out infinite;
+
+}
+
+/* ===================================
+   Performance
+=================================== */
+
+.spotlight,
+
+.spotlight-head,
+
+.spotlight-cone,
+
+.spotlight-core,
+
+.spotlight-soft,
+
+.spotlight-focus{
+
+    will-change:
+
+        transform,
+
+        opacity;
+
+    backface-visibility:hidden;
+
+}
+
+/* ===================================
+   Responsive
+=================================== */
+
+@media(max-width:992px){
+
+    .spotlight{
+
+        width:560px;
+
+    }
+
+    .spotlight-core{
+
+        width:280px;
+
+    }
+
+    .spotlight-soft{
+
+        width:430px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .spotlight{
+
+        width:420px;
+
+        top:88px;
+
+    }
+
+    .spotlight-head{
+
+        width:48px;
+
+        height:48px;
+
+    }
+
+    .spotlight-lens{
+
+        width:18px;
+
+        height:18px;
+
+    }
+
+    .spotlight-core{
+
+        width:220px;
+
+    }
+
+    .spotlight-soft{
+
+        width:320px;
+
+    }
+
+    .spotlight-focus{
+
+        width:280px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .spotlight{
+
+        width:320px;
+
+    }
+
+    .spotlight-head{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .spotlight-core{
+
+        width:170px;
+
+    }
+
+    .spotlight-soft{
+
+        width:240px;
+
+    }
+
+    .spotlight-focus{
+
+        width:200px;
+
+        height:60px;
+
+    }
+
+}
+
+/* ===================================
+   Atmospheric Dust
+=================================== */
+
+.spotlight-cone::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            circle at 30% 25%,
+
+            rgba(var(--spotlight-color),.06),
+
+            transparent 18%
+
+        ),
+
+        radial-gradient(
+
+            circle at 65% 55%,
+
+            rgba(var(--spotlight-color),.04),
+
+            transparent 15%
+
+        ),
+
+        radial-gradient(
+
+            circle at 55% 80%,
+
+            rgba(var(--spotlight-color),.05),
+
+            transparent 18%
+
+        );
+
+    opacity:.4;
+
+    filter:blur(1px);
+
+}
+
+/* ===================================
+   Spotlight Sweep
+=================================== */
+
+@keyframes spotlightSweep{
+
+    0%{
+
+        transform:
+
+            translateX(-50%)
+
+            rotate(-2deg);
+
+    }
+
+    25%{
+
+        transform:
+
+            translateX(-50%)
+
+            rotate(1deg);
+
+    }
+
+    50%{
+
+        transform:
+
+            translateX(-50%)
+
+            rotate(2deg);
+
+    }
+
+    75%{
+
+        transform:
+
+            translateX(-50%)
+
+            rotate(-1deg);
+
+    }
+
+    100%{
+
+        transform:
+
+            translateX(-50%)
+
+            rotate(-2deg);
+
+    }
+
+}
+
+/* ===================================
+   Beam Breathing
+=================================== */
+
+@keyframes beamBreathing{
+
+    0%,
+    100%{
+
+        opacity:.38;
+
+    }
+
+    50%{
+
+        opacity:.58;
+
+    }
+
+}
+
+/* ===================================
+   Glow
+=================================== */
+
+@keyframes glowBreathing{
+
+    0%,
+    100%{
+
+        opacity:.35;
+
+        transform:
+
+            translateX(-50%)
+
+            scale(1);
+
+    }
+
+    50%{
+
+        opacity:.8;
+
+        transform:
+
+            translateX(-50%)
+
+            scale(1.12);
+
+    }
+
+}
+
+/* ===================================
+   Floor Pulse
+=================================== */
+
+@keyframes floorPulse{
+
+    0%,
+    100%{
+
+        opacity:var(--spotlight-floor);
+
+        transform:
+
+            translateX(-50%)
+
+            scale(1);
+
+    }
+
+    50%{
+
+        opacity:.85;
+
+        transform:
+
+            translateX(-50%)
+
+            scale(1.08);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .spotlight-glow{
+
+        width:130px;
+
+        height:130px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .spotlight{
+
+        opacity:calc(var(--spotlight-floor) + .18);
+
+    }
+
+}
+
+.spotlight-cone{
+
+    contain:layout paint;
+
+}
+
+.spotlight-cone::after{
+
+    will-change:opacity;
+
+}
+
+/* ===================================
+   Future Beat States
+=================================== */
+
+.spotlight.beat-kick{
+
+    --spotlight-color:124,58,237;
+
+}
+
+.spotlight.beat-snare{
+
+    --spotlight-color:255,45,149;
+
+}
+
+.spotlight.beat-hihat{
+
+    --spotlight-color:0,245,255;
+
+}
+
+.spotlight.beat-crash{
+
+    --spotlight-color:255,255,255;
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .spotlight-cone,
+
+    .spotlight-core,
+
+    .spotlight-soft,
+
+    .spotlight-focus,
+
+    .spotlight-glow{
+
+        animation:none;
+
+    }
+
+}
+
+.spotlight{
+
+    contain:layout paint;
+
+}
+
+.spotlight *{
+
+    transform-style:preserve-3d;
+
+}
+
+/* ===================================
+   Ultra Wide
+=================================== */
+
+@media(min-width:1800px){
+
+    .spotlight{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(1.12);
+
+    }
+
+}
+
+/* ===================================
+   Laptop
+=================================== */
+
+@media(max-width:1200px){
+
+    .spotlight{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.92);
+
+    }
+
+}
+
+/* ===================================
+   Tablet
+=================================== */
+
+@media(max-width:992px){
+
+    .spotlight{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.82);
+
+    }
+
+}
+
+/* ===================================
+   Mobile
+=================================== */
+
+@media(max-width:768px){
+
+    .spotlight{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.7);
+
+    }
+
+}
+
+/* ===================================
+   Small Mobile
+=================================== */
+
+@media(max-width:480px){
+
+    .spotlight{
+
+        transform:
+
+            translateX(-50%)
+
+            scale(.58);
+
+    }
+
+}
+
+/* ===================================
+   Touch Devices
+=================================== */
+
+@media(pointer:coarse){
+
+    .spotlight{
+
+        opacity:.92;
+
+    }
+
+}
+
+/* ===================================
+   Performance
+=================================== */
+
+.spotlight-core,
+
+.spotlight-soft{
+
+    contain:paint;
+
+}

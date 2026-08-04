@@ -1,0 +1,392 @@
+/* =========================================================
+   Animated Background
+========================================================= */
+
+.animated-background {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -100;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(124, 58, 237, 0.12),
+            transparent 45%),
+        radial-gradient(circle at bottom right,
+            rgba(0, 245, 255, 0.08),
+            transparent 45%),
+        #050816;
+}
+
+/* =========================================================
+   Grid
+========================================================= */
+
+.background-grid {
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        );
+
+    background-size:60px 60px;
+
+    mask-image:
+        radial-gradient(circle at center,
+            black,
+            transparent 90%);
+
+    opacity:.55;
+
+    animation:gridMove 20s linear infinite;
+
+}
+
+@keyframes gridMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(60px);
+
+    }
+
+}
+
+/* =========================================================
+   Noise Layer
+========================================================= */
+
+.background-noise{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.03;
+
+    background-image:
+
+        radial-gradient(#ffffff 1px,transparent 1px);
+
+    background-size:5px 5px;
+
+}
+
+/* =========================================================
+   Gradient Overlay
+========================================================= */
+
+.gradient-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        rgba(5,8,22,.15),
+
+        rgba(5,8,22,.65),
+
+        rgba(5,8,22,.95)
+
+    );
+
+}
+
+/* =========================================================
+   Floating Blobs
+========================================================= */
+
+.blob{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    opacity:.35;
+
+    will-change:transform;
+
+}
+
+.blob-1{
+
+    top:-120px;
+
+    left:-100px;
+
+    background:#7C3AED;
+
+}
+
+.blob-2{
+
+    right:-100px;
+
+    top:18%;
+
+    background:#00F5FF;
+
+}
+
+.blob-3{
+
+    bottom:-120px;
+
+    left:40%;
+
+    background:#FF2D95;
+
+}
+
+/* =========================================================
+   Floating Particles
+========================================================= */
+
+.particle-layer{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    bottom:-10px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.35;
+
+    box-shadow:
+
+        0 0 8px white,
+
+        0 0 20px white;
+
+}
+
+/* =========================================================
+   Pulse Rings
+========================================================= */
+
+.pulse-ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.08);
+
+    filter:blur(2px);
+
+}
+
+.pulse-ring-1{
+
+    width:650px;
+
+    height:650px;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-color:rgba(124,58,237,.22);
+
+}
+
+.pulse-ring-2{
+
+    width:900px;
+
+    height:900px;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-color:rgba(0,245,255,.15);
+
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width:992px){
+
+    .background-grid{
+
+        background-size:50px 50px;
+
+    }
+
+    .pulse-ring-1{
+
+        width:520px;
+        height:520px;
+
+    }
+
+    .pulse-ring-2{
+
+        width:720px;
+        height:720px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .blob{
+
+        filter:blur(80px);
+
+        opacity:.25;
+
+    }
+
+    .background-grid{
+
+        background-size:40px 40px;
+
+    }
+
+    .pulse-ring-1{
+
+        width:400px;
+        height:400px;
+
+    }
+
+    .pulse-ring-2{
+
+        width:560px;
+        height:560px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .particle{
+
+        opacity:.2;
+
+    }
+
+    .blob{
+
+        filter:blur(70px);
+
+    }
+
+}
+
+/* ==========================================
+   Background Performance
+========================================== */
+
+.animated-background{
+
+    will-change:transform;
+
+    contain:layout style paint;
+
+}
+
+.background-grid,
+.background-noise,
+.gradient-overlay{
+
+    pointer-events:none;
+
+}
+
+.blob{
+
+    animation:blobPulse 8s ease-in-out infinite;
+
+}
+
+.blob-2{
+
+    animation-delay:2s;
+
+}
+
+.blob-3{
+
+    animation-delay:4s;
+
+}
+
+@keyframes blobPulse{
+
+    0%{
+
+        opacity:.22;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:.38;
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        opacity:.22;
+
+        transform:scale(1);
+
+    }
+
+}
