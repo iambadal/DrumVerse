@@ -1,32 +1,31 @@
-import {
-    createContext,
-    useCallback,
-    useContext,
-    useMemo,
-    useState,
-} from "react";
+import { createContext, useCallback, useContext, useMemo, useState,} from "react";
 
 import drumPads from "../data/drumPads";
-import { preloadSounds } from "../utils/preloadSounds";
+import useDrumState from "../hooks/useDrumState";
+import useRecorder from "../hooks/useRecorder";
+import createAudioPool from "../utils/createAudioPool";
+import useMetronome from "../hooks/useMetronome";
+import usePlayback from "../hooks/usePlayback";
 
 const AudioContext = createContext(null);
 
 export const AudioProvider = ({ children }) => {
+    const drumState = useDrumState();
+    const recorder = useRecorder();
+    const metronome = useMetronome();
 
-    const audioMap = useMemo(
-        () => preloadSounds(drumPads),
-        []
-    );
+const audioPool = useMemo(
+
+    () => createAudioPool(drumPads),
+
+    []
+
+);
 
     const [volume, setVolume] = useState(0.8);
 
     const [muted, setMuted] = useState(false);
 
-    /*
-    ==========================================
-    Beat Event
-    ==========================================
-    */
 
     const [beat, setBeat] = useState({
 
@@ -80,20 +79,33 @@ export const AudioProvider = ({ children }) => {
             );
 
             if (!pad) return;
+            drumState.hit(pad);
+            recorder.record(pad);
 
-            const audio = audioMap[key];
+            const pool = audioPool[key];
 
-            if (!audio) return;
+if (!pool) {
 
-            const clone = audio.cloneNode();
+    console.error("No audio pool found for:", key);
 
-            clone.currentTime = 0;
+    return;
 
-            clone.volume = muted
-                ? 0
-                : volume;
+}
 
-            clone.play().catch(() => {});
+const player = pool.players[pool.index];
+
+player.currentTime = 0;
+
+player.volume = muted ? 0 : volume;
+
+player.play().catch((err) => {
+    console.error("Audio Play Error:", err);
+});
+pool.index =
+
+    (pool.index + 1)
+
+    % pool.players.length;
 
             /*
             Publish Beat Event
@@ -121,9 +133,10 @@ export const AudioProvider = ({ children }) => {
 
         },
 
-        [audioMap, muted, volume]
-
+        [audioPool, muted, volume, drumState, recorder]
     );
+
+    const playback = usePlayback(play);
 
     /*
     ==========================================
@@ -146,25 +159,30 @@ export const AudioProvider = ({ children }) => {
     return (
 
         <AudioContext.Provider
+    value={{
 
-            value={{
+        play,
 
-                play,
+        volume,
 
-                volume,
+        muted,
 
-                muted,
+        setVolume,
 
-                setVolume,
+        toggleMute,
 
-                toggleMute,
+        beat,
 
-                beat,
+        drumState,
 
-            }}
+        recorder,
 
-        >
+        metronome,
 
+        playback,
+
+    }}
+>
             {children}
 
         </AudioContext.Provider>

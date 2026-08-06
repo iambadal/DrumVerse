@@ -1,123 +1,157 @@
+import crash from "../assets/sounds/crash.wav";
+import hihat from "../assets/sounds/hihat.wav";
+import hightom from "../assets/sounds/hightom.wav";
+import midtom from "../assets/sounds/midtom.wav";
+import racktom from "../assets/sounds/racktom.wav";
+import ride from "../assets/sounds/ride.wav";
+import snare from "../assets/sounds/snare.wav";
+import floortom from "../assets/sounds/floortom.wav";
+import kick from "../assets/sounds/kick.wav";
+
 const drumPads = [
 
     {
         id: 1,
         key: "Q",
-        name: "Kick",
-        category: "Bass",
-        color: "#7C3AED",
-        note: "♩",
-        sound: "/sounds/kick.wav",
+        code: "KeyQ",
+        className: "crash-hitbox",
+        name: "Crash",
+        category: "Cymbal",
+        color: "#FFD166",
+        note: "♬",
+        sound: crash,
+        center: {
+            x: 13,
+            y: 11,
+        },
     },
 
     {
         id: 2,
         key: "W",
-        name: "Snare",
-        category: "Snare",
-        color: "#00F5FF",
-        note: "♪",
-        sound: "/sounds/snare.wav",
+        code: "KeyW",
+        className: "hihat-hitbox",
+        name: "Hi-Hat",
+        category: "Cymbal",
+        color: "#F4D35E",
+        note: "♫",
+        sound: hihat,
+        center: {
+            x: 22,
+            y: 26,
+        },
     },
 
     {
         id: 3,
         key: "E",
-        name: "Hi-Hat",
-        category: "Cymbal",
-        color: "#FF2D95",
-        note: "♫",
-        sound: "/sounds/hihat.wav",
+        code: "KeyE",
+        className: "hightom-hitbox",
+        name: "High Tom",
+        category: "Tom",
+        color: "#4CC9F0",
+        note: "♪",
+        sound: hightom,
+        center: {
+            x: 42,
+            y: 33,
+        },
     },
 
     {
         id: 4,
         key: "R",
-        name: "Clap",
-        category: "Percussion",
-        color: "#F59E0B",
-        note: "♬",
-        sound: "/sounds/clap.wav",
+        code: "KeyR",
+        className: "midtom-hitbox",
+        name: "Mid Tom",
+        category: "Tom",
+        color: "#4895EF",
+        note: "♪",
+        sound: midtom,
+        center: {
+            x: 54,
+            y: 33,
+        },
     },
 
     {
         id: 5,
-        key: "A",
-        name: "Tom 1",
+        key: "T",
+        code: "KeyT",
+        className: "racktom-hitbox",
+        name: "Rack Tom",
         category: "Tom",
-        color: "#22C55E",
-        note: "♩",
-        sound: "/sounds/tom1.wav",
+        color: "#4361EE",
+        note: "♪",
+        sound: racktom,
+        center: {
+            x: 66,
+            y: 33,
+        },
     },
 
     {
         id: 6,
-        key: "S",
-        name: "Tom 2",
-        category: "Tom",
-        color: "#EC4899",
-        note: "♪",
-        sound: "/sounds/tom2.wav",
+        key: "Y",
+        code: "KeyY",
+        className: "ride-hitbox",
+        name: "Ride",
+        category: "Cymbal",
+        color: "#F8961E",
+        note: "♬",
+        sound: ride,
+        center: {
+            x: 86,
+            y: 11,
+        },
     },
 
     {
         id: 7,
-        key: "D",
-        name: "Crash",
-        category: "Cymbal",
-        color: "#3B82F6",
-        note: "♫",
-        sound: "/sounds/crash.wav",
+        key: "A",
+        code: "KeyA",
+        className: "snare-hitbox",
+        name: "Snare",
+        category: "Snare",
+        color: "#F72585",
+        note: "♩",
+        sound: snare,
+        center: {
+            x: 33,
+            y: 54,
+        },
     },
 
     {
         id: 8,
-        key: "F",
-        name: "Ride",
-        category: "Cymbal",
-        color: "#EF4444",
-        note: "♬",
-        sound: "/sounds/ride.wav",
+        key: "S",
+        code: "KeyS",
+        className: "floortom-hitbox",
+        name: "Floor Tom",
+        category: "Tom",
+        color: "#43AA8B",
+        note: "♪",
+        sound: floortom,
+        center: {
+            x: 72,
+            y: 50,
+        },
     },
 
     {
         id: 9,
-        key: "Z",
-        name: "Cowbell",
-        category: "FX",
-        color: "#8B5CF6",
+        key: "SPACE",
+        code: "Space",
+        className: "kick-hitbox",
+        name: "Kick",
+        category: "Bass",
+        color: "#7209B7",
         note: "♩",
-        sound: "/sounds/cowbell.wav",
-    },
-
-    {
-        id: 10,
-        key: "X",
-        name: "Shaker",
-        category: "FX",
-        color: "#14B8A6",
-        note: "♪",
-        sound: "/sounds/shaker.wav",
-    },
-
-    {
-        id: 11,
-        key: "C",
-        name: "Tambourine",
-        category: "FX",
-        color: "#F97316",
-        note: "♫",
-        sound: "/sounds/tambourine.wav",
-    },
-
-    {
-        id: 12,
-        key: "V",
-        name: "Open Hat",
-        category: "Cymbal",
-        color: "#06B6D4",
-        note: "♬",
-        sound: "/sounds/openhat.wav",
+        sound: kick,
+        center: {
+            x: 50,
+            y: 67,
+        },
     },
 
 ];

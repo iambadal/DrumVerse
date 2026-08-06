@@ -1,0 +1,49 @@
+.beat-glow{
+
+    position:fixed;
+
+    width:40px;
+
+    height:40px;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:var(--glow-color);
+
+    filter:blur(45px);
+
+    opacity:.75;
+
+    animation:beatGlow .45s ease-out forwards;
+
+    z-index:80;
+
+}
+
+@keyframes beatGlow{
+
+    0%{
+
+        width:40px;
+
+        height:40px;
+
+        opacity:.9;
+
+    }
+
+    100%{
+
+        width:230px;
+
+        height:230px;
+
+        opacity:0;
+
+    }
+
+}

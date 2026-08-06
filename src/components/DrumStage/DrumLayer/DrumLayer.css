@@ -2,74 +2,12 @@
 
     position:absolute;
 
-    left:50%;
+    inset:0;
 
-    bottom:70px;
+    display:flex;
 
-    transform:translateX(-50%);
+    justify-content:center;
 
-    width:1200px;
-
-    height:760px;
-
-    pointer-events:none;
-
-    z-index:20;
-
-    overflow:visible;
-
-}
-
-/* Every drum will use absolute positioning */
-
-.drum-layer > *{
-
-    position:absolute;
-
-    pointer-events:auto;
-
-}
-
-/* Responsive */
-
-@media (max-width:1400px){
-
-    .drum-layer{
-
-        transform:translateX(-50%) scale(.92);
-
-        transform-origin:center bottom;
-
-    }
-
-}
-
-@media (max-width:1200px){
-
-    .drum-layer{
-
-        transform:translateX(-50%) scale(.82);
-
-    }
-
-}
-
-@media (max-width:992px){
-
-    .drum-layer{
-
-        transform:translateX(-50%) scale(.72);
-
-    }
-
-}
-
-@media (max-width:768px){
-
-    .drum-layer{
-
-        transform:translateX(-50%) scale(.60);
-
-    }
+    align-items:flex-end;
 
 }

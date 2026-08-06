@@ -6,23 +6,27 @@ const StudioLayout = ({ left, center, right, bottom }) => {
 
         <div className="studio-layout">
 
-            <aside className="studio-left">
+            <div className="studio-main">
 
-                {left}
+                <aside className="studio-left-column">
 
-            </aside>
+                    {left}
 
-            <main className="studio-center">
+                </aside>
 
-                {center}
+                <main className="studio-center-column">
 
-            </main>
+                    {center}
 
-            <aside className="studio-right">
+                </main>
 
-                {right}
+                <aside className="studio-right-column">
 
-            </aside>
+                    {right}
+
+                </aside>
+
+            </div>
 
             <footer className="studio-bottom">
 

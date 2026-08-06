@@ -1,0 +1,45 @@
+.panel-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding:14px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.section-title{
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#8B9CB5;
+
+    letter-spacing:1px;
+
+}
+
+.section-placeholder{
+
+    min-height:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    color:#FFFFFF;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}

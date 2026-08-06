@@ -2,114 +2,33 @@
 
     position:absolute;
 
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:30;
-
-    overflow:visible;
-
-}
-
-/* ==========================================
-   Drum Origin
-========================================== */
-
-.drum-origin{
-
-    position:absolute;
-
     left:50%;
 
-    top:68%;
+    bottom:-200px;
 
-    width:8px;
+    transform:translateX(-50%);
 
-    height:8px;
-
-    border-radius:50%;
-
-    background:#00eaff;
-
-    transform:translate(-50%,-50%);
-
-    opacity:.25;
-
-}
-
-/* ==========================================
-   Kick
-========================================== */
-
-.kick-slot{
-
-    position:absolute;
-
-    left:50%;
-
-    top:66%;
-
-    width:340px;
-
-    height:340px;
-
-    transform:translate(-50%,-50%);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    pointer-events:auto;
+    width:min(870px,75vw);
 
     z-index:20;
 
-}
-
-/* ==========================================
-   Mid Tom
-========================================== */
-
-.midtom-slot{
-
-    position:absolute;
-
-    left:50%;
-
-    top:31%;
-
-    width:150px;
-
-    height:150px;
-
-    transform:translate(-50%,-50%);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    pointer-events:auto;
-
-    z-index:30;
+    user-select:none;
 
 }
 
-/* ==========================================
-   Mid Tom Anchor
-========================================== */
+.drum-kit-image{
 
-.midtom-anchor{
+    display:block;
 
-    position:absolute;
+    width:100%;
 
-    left:50%;
+    height:auto;
 
-    top:50%;
+    pointer-events:none;
 
-    transform:translate(-50%,-65%);
+    user-select:none;
+
+    filter:
+        drop-shadow(0 18px 35px rgba(0,0,0,.45));
 
 }

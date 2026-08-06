@@ -1,0 +1,444 @@
+.hit-areas{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:50;
+
+}
+
+/* ================================================= */
+
+.hitbox{
+
+    position:absolute;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.001);
+
+    pointer-events:auto;
+
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+
+}
+
+.hitbox:hover{
+
+    background:rgba(255,255,255,0.001);
+
+}
+
+/* =================================================
+   Cymbals
+================================================= */
+
+.crash-hitbox{
+
+    left:9%;
+
+    top:9%;
+
+    width:18%;
+
+    height:8%;
+
+    rotate:6deg;   
+
+}
+
+.ride-hitbox{
+
+    right:8%;
+
+    top:8%;
+
+    width:21%;
+
+    height:9%;
+
+    rotate:-6deg;
+
+}
+
+.hihat-hitbox{
+
+    left:19%;
+
+    top:19%;
+
+    width:22%;
+
+    height:9%;
+
+    rotate:6deg;
+
+}
+
+/* =================================================
+   Toms
+================================================= */
+
+.hightom-hitbox{
+
+    left:42%;
+
+    top:20%;
+
+    width:13%;
+
+    height:14%;
+
+}
+
+.midtom-hitbox{
+
+    left:56%;
+
+    top:20%;
+
+    width:11%;
+
+    height:14%;
+
+}
+
+.floortom-hitbox{
+
+    left:67%;
+
+    top:32%;
+
+    width:12%;
+
+    height:15%;
+
+}
+
+/* =================================================
+   Snare
+================================================= */
+
+.snare-hitbox{
+
+    left:29%;
+
+    top:31%;
+
+    width:13%;
+
+    height:12%;
+
+}
+
+/* =================================================
+   Kick
+================================================= */
+
+.kick-hitbox{
+
+    left:40%;
+
+    top:41%;
+
+    width:24%;
+
+    height:37%;
+
+}
+
+/* =====================================
+   Rack Tom
+===================================== */
+
+.racktom-hitbox{
+
+    left:67%;
+
+    top:20%;
+
+    width:11%;
+
+    height:10%;
+
+}
+
+
+.hitbox.active{
+
+    transform:scale(.94);
+
+    background:rgba(0,229,255,.32);
+
+    box-shadow:
+        0 0 28px rgba(0,229,255,.65);
+
+}
+
+/* ===================================
+   Playing Animation
+=================================== */
+
+/* =========================================
+   Active Drum
+========================================= */
+
+.hitbox.playing{
+
+    animation:drumPulse .18s ease;
+
+}
+
+/* =========================================
+   Individual Glow
+========================================= */
+
+.kick-hitbox.playing{
+
+    box-shadow:
+        0 0 18px #7209B7,
+        0 0 45px rgba(114,9,183,.6),
+        inset 0 0 20px rgba(114,9,183,.45);
+
+}
+
+.snare-hitbox.playing{
+
+    box-shadow:
+        0 0 18px #F72585,
+        0 0 42px rgba(247,37,133,.55),
+        inset 0 0 18px rgba(247,37,133,.4);
+
+}
+
+.hihat-hitbox.playing{
+
+    box-shadow:
+        0 0 18px #F4D35E,
+        0 0 45px rgba(244,211,94,.6);
+
+}
+
+.crash-hitbox.playing{
+
+    box-shadow:
+        0 0 22px #FFD166,
+        0 0 55px rgba(255,209,102,.75);
+
+}
+
+.ride-hitbox.playing{
+
+    box-shadow:
+        0 0 22px #F8961E,
+        0 0 55px rgba(248,150,30,.75);
+
+}
+
+.hightom-hitbox.playing,
+
+.midtom-hitbox.playing,
+
+.racktom-hitbox.playing,
+
+.floortom-hitbox.playing{
+
+    box-shadow:
+        0 0 18px #4CC9F0,
+        0 0 45px rgba(76,201,240,.6);
+
+}
+@keyframes kickHit{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(.82);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes snareHit{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(.9);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes tomHit{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    45%{
+
+        transform:scale(.9);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes hihatHit{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:translateY(4px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes crashSwing{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    30%{
+
+        transform:rotate(-12deg);
+
+    }
+
+    70%{
+
+        transform:rotate(8deg);
+
+    }
+
+    100%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+@keyframes rideSwing{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    35%{
+
+        transform:rotate(10deg);
+
+    }
+
+    70%{
+
+        transform:rotate(-6deg);
+
+    }
+
+    100%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+@keyframes drumPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    30%{
+
+        transform:scale(.88);
+
+    }
+
+    65%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.hitbox{
+
+    transition:
+
+        transform .18s ease,
+
+        box-shadow .22s ease,
+
+        background .22s ease;
+
+}

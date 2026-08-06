@@ -8,75 +8,129 @@ const useKeyboard = () => {
 
     const { play } = useAudio();
 
-    const [activeKey,setActiveKey]=useState("");
+    const [activeKeys, setActiveKeys] = useState(new Set());
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        const handleKeyDown=(event)=>{
+        const handleKeyDown = (event) => {
 
-            const key=
-                event.key.toUpperCase();
+            const pad = drumPads.find(
 
-            const pad=
-                drumPads.find(
-                    item=>item.key===key
-                );
+                item => item.code === event.code
 
-            if(!pad) return;
+            );
+
+            if (!pad) return;
+
+            setActiveKeys(prev => {
+
+                const next = new Set(prev);
+
+                next.add(pad.key);
+
+                return next;
+
+            });
+
+            const hitbox = document.querySelector(
+
+                `.${pad.className}`
+
+            );
+
+            let origin = {
+
+                x: window.innerWidth / 2,
+
+                y: window.innerHeight / 2,
+
+            };
+
+            if (hitbox) {
+
+                const rect = hitbox.getBoundingClientRect();
+
+                origin = {
+
+                    x: rect.left + rect.width / 2,
+
+                    y: rect.top + rect.height / 2,
+
+                };
+
+            }
 
             play(
 
-                key,
+                pad.key,
 
-                {
-
-                    x:
-                        window.innerWidth/2,
-
-                    y:
-                        window.innerHeight/2,
-
-                }
+                origin
 
             );
 
-            setActiveKey(key);
-
         };
 
-        const handleKeyUp=()=>{
+        const handleKeyUp = (event) => {
 
-            setActiveKey("");
+            const pad = drumPads.find(
+
+                item => item.code === event.code
+
+            );
+
+            if (!pad) return;
+
+            setActiveKeys(prev => {
+
+                const next = new Set(prev);
+
+                next.delete(pad.key);
+
+                return next;
+
+            });
 
         };
 
         window.addEventListener(
+
             "keydown",
+
             handleKeyDown
+
         );
 
         window.addEventListener(
+
             "keyup",
+
             handleKeyUp
+
         );
 
-        return()=>{
+        return () => {
 
             window.removeEventListener(
+
                 "keydown",
+
                 handleKeyDown
+
             );
 
             window.removeEventListener(
+
                 "keyup",
+
                 handleKeyUp
+
             );
 
         };
 
-    },[play]);
+    }, [play]);
 
-    return activeKey;
+    return activeKeys;
 
 };
 

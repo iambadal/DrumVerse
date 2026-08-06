@@ -1,24 +1,23 @@
 import "./DrumKit.css";
 
-import Kick from "../Kick/Kick";
-import MidTom from "../MidTom/MidTom";
+import drumKitImage from "../../../assets/images/drums/drumkit.png";
 
-const DrumKit = () => {
+import HitAreas from "../HitAreas/HitAreas";
+
+const DrumKit = ({ activeKeys }) => {
 
     return (
 
         <div className="drum-kit">
 
-            <div className="drum-origin"/>
+            <img
+                className="drum-kit-image"
+                src={drumKitImage}
+                alt="Drum Kit"
+                draggable={false}
+            />
 
-            <div className="kick-slot">
-                <Kick/>
-            </div>
-            <div className="midtom-slot">
-              <div className="midtom-anchor">
-                 <MidTom /> 
-              </div>
-            </div>
+            <HitAreas activeKeys={activeKeys} />
 
         </div>
 
